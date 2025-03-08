@@ -38,21 +38,9 @@ Repair-SystemFiles
   Set-ExecutionPolicy Unrestricted -Scope CurrentUser
   ```
 
-## Screenshots
+## Screenshot
 ### Script Execution
 ![Script Running](screenshots/script_running.png)
-
-### Network Issue Detection
-![Network Issue](screenshots/network_issue.png)
-
-### Disk Cleanup Execution
-![Disk Cleanup](screenshots/disk_cleanup.png)
-
-### Checking for Windows Updates
-![Windows Update Check](screenshots/windows_update.png)
-
-### Running System File Checker (SFC)
-![SFC Scan](screenshots/sfc_scan.png)
 
 ## Next Steps
 - Implement detailed logging for each troubleshooting step.
@@ -72,11 +60,9 @@ Project-1_Windows-Troubleshooter/
 │── README.md
 │── screenshots/
 │   ├── script_running.png
-│   ├── network_issue.png
-│   ├── disk_cleanup.png
-│   ├── windows_update.png
-│   ├── sfc_scan.png
 ```
+
+
 
  the repository and submit a pull request.
 
