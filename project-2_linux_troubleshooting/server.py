@@ -1,13 +1,18 @@
-from flask import Flask, request
+from flask import Flask, request, send_from_directory, render_template
 import subprocess
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
-# ✅ Home route to verify server is running
+# ✅ Serve index.html as the homepage
 @app.route('/')
 def home():
-    return "Flask server is running! Use /run-script?script=your_script.sh"
+    return send_from_directory('', 'index.html')
+
+# ✅ Serve static files (CSS, JS, etc.)
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('static', filename)
 
 # ✅ Route to execute scripts
 @app.route('/run-script', methods=['GET'])
@@ -27,4 +32,3 @@ def run_script():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-
