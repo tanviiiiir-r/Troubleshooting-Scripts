@@ -1,88 +1,145 @@
-Windows Troubleshooter
+# 🚀 Kali Linux Troubleshooting Guide
 
-Overview
+An interactive web-based troubleshooting tool for Kali Linux, built using **Flask**, **Bash Scripts**, and **Docker**.
 
-This PowerShell script automates the process of diagnosing and fixing common Windows issues, including:
+---
 
-Checking and fixing network connectivity problems
+## 📌 Features
+- Web-based troubleshooting interface
+- Predefined **Linux troubleshooting scripts**
+- **One-click execution** for common issues
+- **Dockerized** for easy deployment
 
-Cleaning up temporary files and system junk
+---
 
-Checking for Windows updates (without auto-installation)
+## 🛠️ Technologies Used
+- **Python (Flask)** - Backend API
+- **HTML, CSS, JavaScript** - Frontend UI
+- **Bash Scripts** - Troubleshooting utilities
+- **Docker** - Containerization
 
-Running System File Checker (SFC) and DISM to repair system files
+---
 
-Features
+## 📚 Project Structure
+```
+/project-2_linux_troubleshooting
+│── scripts/                 # Contains troubleshooting scripts
+│   ├── network_fix.sh
+│   ├── permissions_fix.sh
+│   ├── system_check.sh
+│   ├── kali_update_fix.sh
+│   ├── metasploit_fix.sh
+│── static/                  # CSS and frontend assets
+│── templates/               # Frontend HTML templates
+│── server.py                # Flask backend API
+│── Dockerfile               # Docker configuration
+│── README.md                # Project Documentation
+```
 
-Automated Troubleshooting: Detects and resolves common Windows issues.
+---
 
-Admin Privileges Check: Automatically requests elevated privileges if required.
+## 🖥️ Screenshots
+### 1️⃣ **Homepage UI**
+![Homepage](screenshots/homepage.png)
 
-Modular Execution: Run specific troubleshooting functions individually.
+### 2️⃣ **Running a Troubleshooting Script**
+![Running Script](screenshots/running_script.png)
 
-Usage
+### 3️⃣ **Dockerized Application Running**
+![Docker Running](screenshots/docker_running.png)
 
-Clone the Repository
+---
 
-git clone https://github.com/your-username/Troubleshooting-Scripts.git
-cd Troubleshooting-Scripts/Project-1_Windows-Troubleshooter
+## 🖥️ Running the Project Locally
 
-Run the Script in PowerShell (Admin)
+### 1️⃣ **Install Dependencies**
+Make sure you have **Python3** and **pip** installed:
+```bash
+sudo apt update && sudo apt install python3 python3-pip -y
+```
+Install Flask:
+```bash
+pip install flask
+```
 
-.\Windows_Troubleshooter.ps1
+### 2️⃣ **Run the Server**
+Start the Flask application:
+```bash
+python3 server.py
+```
+Now visit **`http://127.0.0.1:5000`** in your browser.
 
-Run Specific Troubleshooting Functions
+---
 
-Check-Network
-Clean-Disk
-Check-WindowsUpdates
-Repair-SystemFiles
+## 🐋 Running with Docker
 
-Prerequisites
+### 1️⃣ **Install Docker**
+If Docker is not installed:
+```bash
+sudo apt install docker.io -y
+```
+Start and enable Docker:
+```bash
+sudo systemctl start docker
+sudo systemctl enable docker
+```
 
-Windows PowerShell v5.1 or later
+### 2️⃣ **Build the Docker Image**
+```bash
+docker build -t kali-troubleshooting .
+```
 
-Administrator privileges
+### 3️⃣ **Run the Docker Container**
+```bash
+docker run -d -p 5000:5000 --name troubleshooting kali-troubleshooting
+```
 
-If PowerShell script execution is restricted, enable it using:
+### 4️⃣ **Access the Web App**
+Visit:
+```
+http://127.0.0.1:5000
+```
 
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+---
 
-Screenshots
+## 🛠️ How It Works
 
-Script Execution
+1. **Web UI** loads common troubleshooting options.
+2. **User clicks** a button (e.g., *Fix Network Issues*).
+3. **Flask API** executes the corresponding **Bash script**.
+4. **Results** are displayed on the web page.
 
+---
 
+## 📜 Example Troubleshooting Scripts
 
-Network Issue Detection
+### **🔹 Network Fix Script (`network_fix.sh`)**
+```bash
+#!/bin/bash
+echo "$(date) - Running network diagnostics"
+ping -c 3 google.com && echo "✅ Internet is working" || echo "❌ No internet connection"
+```
 
+### **🔹 Permissions Fix Script (`permissions_fix.sh`)**
+```bash
+#!/bin/bash
+echo "$(date) - Running permission fixer"
+chmod -R 755 /path/to/fix
+chown -R $USER:$USER /path/to/fix
+echo "✅ Permissions fixed!"
+```
 
+---
 
-Disk Cleanup Execution
+## 🛠️ API Endpoints
 
+| Method | Endpoint               | Description                 |
+|--------|------------------------|-----------------------------|
+| GET    | `/`                    | Home page                   |
+| GET    | `/run-script?script=name` | Runs a Bash script (name.sh) |
 
-
-Checking for Windows Updates
-
-
-
-Running System File Checker (SFC)
-
-
-
-Next Steps
-
-Implement detailed logging for each troubleshooting step.
-
-Add advanced system diagnostics features.
-
-Improve the UI by integrating a simple graphical interface.
-
-Contributing
-
-Contributions are welcome! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
-
-License
-
-This project is open-source under the MIT License.
+Example API call:
+```bash
+curl "http://127.0.0.1:5000/run-script?script=network_fix.sh"
+```
 
