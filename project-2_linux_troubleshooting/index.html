@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali Linux Troubleshooting</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Kali Linux Troubleshooting Guide</h1>
+    <p>Select an issue to troubleshoot:</p>
+
+    <button onclick="runScript('network_fix.sh')">Fix Network Issues</button>
+    <button onclick="runScript('permissions_fix.sh')">Fix Permissions</button>
+    <button onclick="runScript('system_check.sh')">Run System Check</button>
+    <button onclick="runScript('kali_update_fix.sh')">Fix Kali Updates</button>
+    <button onclick="runScript('metasploit_fix.sh')">Fix Metasploit Database</button>
+
+    <script>
+        function runScript(scriptName) {
+            fetch(`/run-script?script=${scriptName}`)
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => alert("Error: " + error));
+        }
+    </script>
+</body>
+</html>
