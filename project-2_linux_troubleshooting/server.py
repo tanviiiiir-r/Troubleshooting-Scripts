@@ -1,7 +1,13 @@
 from flask import Flask, request
+
 import subprocess
 
 app = Flask(__name__)
+
+# ✅ Add a default route to prevent 404 errors
+@app.route('/')
+def home():
+    return "Flask server is running! Use /run-script?script=your_script.sh"
 
 @app.route('/run-script', methods=['GET'])
 def run_script():
@@ -13,4 +19,4 @@ def run_script():
         return f"Error: {e.output.decode('utf-8')}", 400
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
