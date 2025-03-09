@@ -4,7 +4,7 @@ import subprocess
 
 app = Flask(__name__)
 
-# ✅ Add a default route to prevent 404 errors
+# ✅ Add a home route to prevent 404 errors
 @app.route('/')
 def home():
     return "Flask server is running! Use /run-script?script=your_script.sh"
