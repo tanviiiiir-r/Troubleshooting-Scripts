@@ -53,7 +53,6 @@
     <button class="btn" onclick="runScript('kali_update_fix.sh')">Fix Kali Updates</button>
     <button class="btn" onclick="runScript('metasploit_fix.sh')">Fix Metasploit Database</button>
 
-<<<<<<< HEAD
     <script>
         function runScript(scriptName) {
             fetch(`http://127.0.0.1:5000/run-script?script=${scriptName}`)
@@ -68,8 +67,6 @@
                 .catch(error => alert(`❌ Request Failed: ${error.message}`));
         }
     </script>
-=======
->>>>>>> 38f8194 (Saving local changes before rebase)
 </body>
 </html>
 
