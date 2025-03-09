@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='static')
 # ✅ Serve index.html as the homepage
 @app.route('/')
 def home():
-    return send_from_directory('', 'index.html')
+    return send_from_directory('.', 'index.html')  # Ensure '.' is used correctly
 
 # ✅ Serve static files (CSS, JS, etc.)
 @app.route('/static/<path:filename>')
