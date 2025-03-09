@@ -19,14 +19,15 @@
     <script>
         function runScript(scriptName) {
             fetch(`http://127.0.0.1:5000/run-script?script=${scriptName}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP Error ${response.status}`);
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`✅ Script Output:\n${data.output}`);
+                    } else {
+                        alert(`❌ Error:\n${data.error}`);
                     }
-                    return response.text();
                 })
-                .then(data => alert(`✅ Script Output:\n${data}`))
-                .catch(error => alert(`❌ Error: ${error.message}`));
+                .catch(error => alert(`❌ Request Failed: ${error.message}`));
         }
     </script>
 </body>

@@ -7,9 +7,9 @@ app = Flask(__name__, static_folder='static')
 # ✅ Serve index.html as the homepage
 @app.route('/')
 def home():
-    return send_from_directory('.', 'index.html')  # Ensure '.' is used correctly
+    return send_from_directory('.', 'index.html')  # Correct path
 
-# ✅ Serve static files (CSS, JS, etc.)
+# ✅ Serve static files (CSS, JS)
 @app.route('/static/<path:filename>')
 def serve_static(filename):
     return send_from_directory('static', filename)
@@ -25,11 +25,11 @@ def run_script():
         return jsonify({"error": f"Script {script_name} not found"}), 404
 
     try:
-        # ✅ Execute script and return output
+        # ✅ Execute script and return properly formatted output
         output = subprocess.check_output(["bash", script_path], stderr=subprocess.STDOUT)
-        return jsonify({"success": True, "output": output.decode('utf-8')})
+        return jsonify({"success": True, "output": output.decode('utf-8').strip()})
     except subprocess.CalledProcessError as e:
-        return jsonify({"error": e.output.decode('utf-8')}), 400
+        return jsonify({"error": e.output.decode('utf-8').strip()}), 400
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
