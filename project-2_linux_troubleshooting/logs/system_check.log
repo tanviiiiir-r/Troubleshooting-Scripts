@@ -1,0 +1,36 @@
+Sun Mar  9 06:20:54 PDT 2025 - Running system diagnostics
+----------------------------------
+🖥 System Uptime:
+ 06:20:54 up  3:22,  1 user,  load average: 0.05, 0.05, 0.02
+----------------------------------
+💾 Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:            3921         737        2673          35         714        3183
+Swap:            975           0         975
+----------------------------------
+💽 Disk Usage:
+Filesystem      Size  Used Avail Use% Mounted on
+udev            1.9G     0  1.9G   0% /dev
+tmpfs           393M  1.3M  391M   1% /run
+/dev/vda2        62G   13G   46G  22% /
+tmpfs           2.0G     0  2.0G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/vda1       512M  160K  512M   1% /boot/efi
+tmpfs           393M  116K  392M   1% /run/user/1000
+----------------------------------
+🔍 Checking CPU Load...
+top - 06:20:54 up  3:22,  1 user,  load average: 0.05, 0.05, 0.02
+----------------------------------
+⚡ Top 10 Resource-Consuming Processes:
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         650  0.4  2.5 517232 104072 tty7    Ssl+ 01:58   0:57 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+kali        1834  0.1  2.5 522860 101168 ?       Sl   01:59   0:13 /usr/bin/qterminal
+kali        1013  0.1  2.4 711512 97024 ?        Sl   01:58   0:19 xfwm4 --display :0.0 --sm-client-id 226853a5e-bff1-409b-9491-d7f459e343f6
+kali        1060  0.0  2.2 618712 90604 ?        Sl   01:58   0:01 xfdesktop --display :0.0 --sm-client-id 29ae6749c-9d3b-49dd-b4fa-b19fca6d74aa
+kali        1143  0.0  1.2 453416 50492 ?        Sl   01:58   0:00 /usr/bin/python3 /usr/bin/blueman-applet
+kali        1144  0.0  1.2 637916 48836 ?        Sl   01:58   0:00 nm-applet
+kali        1071  0.0  1.1 475572 44920 ?        Sl   01:58   0:00 /usr/lib/aarch64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/aarch64-linux-gnu/xfce4/panel/plugins/libnotification-plugin.so 17 16777232 notification-plugin Notification Plugin Notification plugin for the Xfce panel
+kali        1049  0.0  1.0 487628 43840 ?        Sl   01:58   0:01 xfce4-panel --display :0.0 --sm-client-id 2b1fb269d-c093-4cce-91b5-e74141248346
+kali        1123  0.0  1.0 616336 42456 ?        Ssl  01:58   0:00 /usr/lib/aarch64-linux-gnu/xfce4/notifyd/xfce4-notifyd
+----------------------------------
+✅ System diagnostics complete!
