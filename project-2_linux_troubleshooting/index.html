@@ -3,55 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kali Linux Troubleshooting Guide</title>
-    <script>
-        function runScript(scriptName) {
-            fetch(`http://127.0.0.1:5000/run-script?script=${scriptName}`)
-                .then(response => response.text())
-                .then(data => {
-                    alert(`✅ Script Output:\n${data}`);
-                })
-                .catch(error => {
-                    alert(`❌ Error: ${error}`);
-                });
-        }
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #2c2f33;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #ffcc00;
-        }
-        .btn {
-            background-color: #7289da;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: #5b6eae;
-        }
-    </style>
+    <title>Kali Linux Troubleshooting</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-
     <h1>Kali Linux Troubleshooting Guide</h1>
     <p>Select an issue to troubleshoot:</p>
 
-    <button class="btn" onclick="runScript('network_fix.sh')">Fix Network Issues</button>
-    <button class="btn" onclick="runScript('permissions_fix.sh')">Fix Permissions</button>
-    <button class="btn" onclick="runScript('system_check.sh')">Run System Check</button>
-    <button class="btn" onclick="runScript('kali_update_fix.sh')">Fix Kali Updates</button>
-    <button class="btn" onclick="runScript('metasploit_fix.sh')">Fix Metasploit Database</button>
+    <button onclick="runScript('network_fix.sh')">Fix Network Issues</button>
+    <button onclick="runScript('permissions_fix.sh')">Fix Permissions</button>
+    <button onclick="runScript('system_check.sh')">Run System Check</button>
+    <button onclick="runScript('kali_update_fix.sh')">Fix Kali Updates</button>
+    <button onclick="runScript('metasploit_fix.sh')">Fix Metasploit Database</button>
 
     <script>
         function runScript(scriptName) {
@@ -69,4 +32,3 @@
     </script>
 </body>
 </html>
-
